@@ -1,1 +1,72 @@
+// 定義抽象類別 CShape
+abstract class CShape {
+    protected int number;
+    protected int totalAngle;
+
+    public CShape(int number) {
+        this.number = number;
+        this.totalAngle = (number - 2) * 180;
+    }
+
+    // 定義抽象方法 angle()，子類別實作該方法
+    public abstract double angle();
+
+    // 改寫 toString() 方法，回傳描述正多邊形的字串
+    @Override
+    public String toString() {
+        return "正" + number + "邊形的每一角為" + angle() + "度";
+    }
+}
+
+// 子類別 CTriangle，代表正三邊形
+class CTriangle extends CShape {
+    public CTriangle() {
+        super(3);
+    }
+
+    // 實作 angle() 方法
+    @Override
+    public double angle() {
+        return (double) totalAngle / number;
+    }
+}
+
+// 子類別 CRect，代表正四邊形
+class CRect extends CShape {
+    public CRect() {
+        super(4);
+    }
+
+    // 實作 angle() 方法
+    @Override
+    public double angle() {
+        return (double) totalAngle / number;
+    }
+}
+
+// 子類別 CPentagon，代表正五邊形
+class CPentagon extends CShape {
+    public CPentagon() {
+        super(5);
+    }
+
+    // 實作 angle() 方法
+    @Override
+    public double angle() {
+        return (double) totalAngle / number;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        CShape[] shapes = new CShape[3];
+        shapes[0] = new CTriangle();
+        shapes[1] = new CRect();
+        shapes[2] = new CPentagon();
+
+        for (CShape shape : shapes) {
+            System.out.println(shape.toString());
+        }
+    }
+}
 
