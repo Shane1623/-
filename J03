@@ -1,1 +1,28 @@
+public class Land {
+    private String[] daysOfWeek;
+
+    public void Dates() {
+        daysOfWeek = new String[]{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
+    }
+
+    /**
+     * @param dayNumber
+     * @return
+     */
+    public String askDate(int dayNumber) {
+        if (dayNumber >= 1 && dayNumber <= 7) {
+            return daysOfWeek[dayNumber - 1];
+        } else {
+            return "Invalid day number";
+        }
+    }
+
+    public static void main(String[] args) {
+        Dates dates = new Dates();
+        int dayNumber = 3; // Replace with the desired day number (1-7)
+
+        String dayAbbreviation = dates.askDate(dayNumber);
+        System.out.println("Day " + dayNumber + " is " + dayAbbreviation);
+    }
+}
 
