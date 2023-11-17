@@ -1,55 +1,30 @@
-class Personel { 
-private String name; private int bornin; 
-public Personel(String name, int bornin) { 
-} 
-this.name = name; 
-this.bornin = bornin; 
-// Getter and Setter methods for name 
-and bornin 
-public void displayInfo() { 
-System.out.println("Name: " + name); System.out.println("Born In: " + bornin); 
-} 
-} 
-class Student extends Personel { 
-private int id; 
-private int grade; 
-private String c1; private String c2; 
-public Student(String name, int bornin, int id, int grade, String c1, String c2) { 
-} 
-super(name, bornin); 
-this.id = id; 
-this.grade = grade; 
-this.c1 = c1; 
-this.c2 = c2; 
-// Getter and Setter methods for id, grade, c1, and c2 
-public void displayStudentInfo() { 
-super.displayInfo(); 
-System.out.println("ID: " + id); 
-System.out.println("Grade: " + grade); 
-System.out.println("Course 1: " + c1); 
-System.out.println("Course 2: " + c2); 
-} 
-} 
-class Teacher extends Personel { 
-private String course; 
-public Teacher(String name, int bornin, String course) { 
-} 
-super(name, bornin); 
-this.course = course; 
-// Getter and Setter methods for course 
-public void displayTeacherInfo() { 
-super.displayInfo(); 
-System.out.println("Course Taught: " + 
-course); 
-} 
-} 
-public class Main { 
-public static void main(String[] args) { 
-Student student = new Student("Alice", 2000, 12345, 10, "Math", "Science"); 
-Teacher teacher = new Teacher("Mr. 
-Smith", 1980, "History"); 
-student.displayStudentInfo(); System.out.println(); 
-teacher.displayTeacherInfo(); 
-} 
-} 
+public class LandPriceCalculator {
+    public static double calculateLandPrice(double pricePerSqMeter, double area) {
+        return pricePerSqMeter * area;
+    }
 
+    public static double calculateCircleArea(double radius) {
+        return 3.14159 * radius * radius;
+    }
+
+    public static double calculateRectangleArea(double length, double width) {
+        return length * width;
+    }
+
+    public static void main(String[] args) {
+        double pricePerSqMeter = 3000.0;
+        double circleRadius = 5.1;
+        double rectangleLength = 5.1;
+        double rectangleWidth = 7.2;
+
+        // 圓形土地的價格
+        double circleArea = calculateCircleArea(circleRadius);
+        double circlePrice = calculateLandPrice(pricePerSqMeter, circleArea);
+        System.out.println("圓形半徑：" + circleRadius + "m，面積：" + circleArea + "平方米，價格：" + circlePrice + "元");
+
+        // 矩形土地的價格
+        double rectangleArea = calculateRectangleArea(rectangleLength, rectangleWidth);
+        double rectanglePrice = calculateLandPrice(pricePerSqMeter, rectangleArea);
+        System.out.println("矩形長：" + rectangleLength + "m，寬：" + rectangleWidth + "m，面積：" + rectangleArea + "平方米，價格：" + rectanglePrice + "元");
+    }
+}
